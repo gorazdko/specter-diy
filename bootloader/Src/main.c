@@ -74,6 +74,9 @@ int main(void)
   
   /* Configure Key Button */
   BSP_PB_Init(BUTTON_WAKEUP, BUTTON_MODE_GPIO);
+
+  /* Configure LED1 - blinking denotes dfu state */
+  BSP_LED_Init(LED1);
   
   /* Check if the KEY Button is pressed */
   if(BSP_PB_GetState(BUTTON_WAKEUP) == 0x00)
@@ -107,6 +110,9 @@ int main(void)
   /* Run Application (Interrupt mode) */
   while (1)
   {
+    /* In DFU state */
+    BSP_LED_Toggle(LED1);
+    HAL_Delay(200);
   }
 }
 
