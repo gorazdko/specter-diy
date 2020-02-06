@@ -4,3 +4,4 @@ reckless.json
 specter-diy.bin
 src/bitcoin
 userdata
+bootloader/build
